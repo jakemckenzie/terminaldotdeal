@@ -43,7 +43,7 @@ The interface will be entirely served via CLI over SSH on purpose. I don't want 
     ├── Computation of the Derivatives of the Expected Return
     └── Unbalanced Counts
 ```
-I've read a lot of different books on this topic and I've employed lots of different methods, two books that stood out to me on the topic are [Professional Blackjack by Sanform Wong](https://www.directtextbook.com/isbn/9780935926217-professional-blackjack) which is a bit terse in its notation but insightful and the other is [Risk and Reward: The Science of Casino Blackjack](https://www.directtextbook.com/isbn/9783319913841-risk-and-reward-the-science-of-casino-blackjack) which is fairly simulation heavy.
+I've read a lot of different books on this topic and I've employed lots of different methods, two books that stood out to me on the topic are [Professional Blackjack by Sanform Wong](https://www.directtextbook.com/isbn/9780935926217-professional-blackjack) which is a bit terse in its notation but insightful and the other is [Risk and Reward: The Science of Casino Blackjack by N. Richard Werthamer](https://www.directtextbook.com/isbn/9783319913841-risk-and-reward-the-science-of-casino-blackjack) which is fairly simulation heavy.
 
 If you're a student just getting into these books these books may be hard to follow. This course is meant to be the "here to there" so perhaps finishing the course can get you to being able to apply the details in the books further.
 
