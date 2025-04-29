@@ -49,7 +49,7 @@ If you're a student just getting into card counting these books may be hard to f
 
 ## Why gRPC?
 
-[Terminal.shop](https://github.com/terminaldotshop) is cool. I like everyone involved there and I wanted to make something like what they made with a twist. I've implemented REST APIs before but never implemented a gRPC API with protobufs. This was mostly a learning experience for myself. gRPC may be overkill but [I liked this video a lot](https://www.youtube.com/watch?v=XpunFFS-n8I) so this is why I'm choosing gRPC.
+[Terminal.shop](https://github.com/terminaldotshop) is cool. I like everyone involved there and I wanted to make something like what they made with a twist. I've implemented REST APIs before but never implemented a gRPC API with protobufs. This is mostly a learning experience for myself. gRPC may be overkill but [I liked this video a lot](https://www.youtube.com/watch?v=XpunFFS-n8I) so this is why I'm choosing gRPC.
 
 [gRPC seems very simple to implement in golang](https://grpc.io/docs/languages/go/basics/) and it's performant, so why not?
 
