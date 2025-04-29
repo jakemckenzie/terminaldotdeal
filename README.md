@@ -55,7 +55,7 @@ If you're a student just getting into card counting these books may be hard to f
 
 >Let's say you create a REST API. We're probably going to get either too little or too much data. If we create one REST API to rule them all, it's going to be a bad experience for all these different devices, because we always waste some data, or we have to do multiple network calls, which is also bad.
 
-I'm not serving a browser, I don't have HTML/json to serve the CLI so why make a REST API, seems like overkill. Maybe implementing gRPC ~may~ be difficult for me as it's my first time but I'm learning backend development and it seems like just the right amount of bike shedding to level up and serve the client a convenient experience.
+I'm not serving a browser, I don't have HTML/json to serve the CLI so why make a REST API, seems like overkill. Maybe implementing gRPC *may* be difficult for me as it's my first time but I'm learning backend development and it seems like just the right amount of bike shedding to level up and serve the client a convenient experience.
 
 ## Terminal API Specification
 ```mermaid
