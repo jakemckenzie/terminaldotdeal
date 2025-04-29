@@ -57,7 +57,7 @@ If you're a student just getting into card counting these books may be hard to f
 
 I'm not serving a browser, I don't have HTML/json to serve the CLI so why make a REST API, seems like overkill. Maybe implementing gRPC ~may~ be difficult for me as it's my first time but I'm learning backend development and it seems like just the right amount of bike shedding to level up and serve the client a convenient experience.
 
-## API Specification
+## Terminal API Specification
 ```mermaid
 sequenceDiagram
     participant User
@@ -67,56 +67,61 @@ sequenceDiagram
 
     User->>UI: SSH to e-learning platform
     UI->>SDK: CreateSDKClient()
-    SDK->>API: Auth.Init()
-    API-->>SDK: Authentication token
-    SDK->>API: Subscription.Check()
+    SDK->>API: CheckSubscription()
     API-->>SDK: Subscription status
     alt subscribed
-        SDK->>UI: Load parts catalog
-        UI->>User: Display available parts
+        SDK->>API: GetParts()
+        API-->>SDK: List of parts
+        SDK->>UI: Display parts
     else not subscribed
         UI->>User: Prompt to subscribe
+        User->>UI: Select subscription plan
+        UI->>SDK: CreateSubscription(plan)
+        SDK->>API: CreateSubscription(plan)
+        API-->>SDK: Subscription created
+        SDK->>API: GetParts()
+        API-->>SDK: List of parts
+        SDK->>UI: Display parts
     end
 
     User->>UI: Select part
-    UI->>SDK: Part.GetTopics(part_id)
-    SDK->>API: Fetch topics for part
+    UI->>SDK: GetTopics(part_id)
+    SDK->>API: GetTopics(part_id)
     API-->>SDK: List of topics
     SDK->>UI: Display topics
     User->>UI: Select topic
-    UI->>SDK: Topic.GetContent(topic_id)
-    SDK->>API: Fetch topic content
-    API-->>SDK: Topic content
-    SDK->>UI: Display content
-
+    UI->>SDK: GetContent(topic_id)
+    SDK->>API: GetContent(topic_id)
+    note right of API: Streaming response
+    API-->>SDK: Content stream
+    SDK->>UI: Display content (stream)
     User->>UI: Mark as completed
-    UI->>SDK: Progress.Complete(topic_id)
-    SDK->>API: Update progress
+    UI->>SDK: CompleteTopic(topic_id)
+    SDK->>API: CompleteTopic(topic_id)
     API-->>SDK: Confirmation
-    SDK->>UI: Update progress display
 
-    User->>UI: Take quiz for topic
-    UI->>SDK: Quiz.Get(topic_id)
-    SDK->>API: Fetch quiz questions
-    API-->>SDK: Quiz data
-    SDK->>UI: Display quiz
-    User->>UI: Submit answers
-    UI->>SDK: Quiz.Submit(topic_id, answers)
-    SDK->>API: Submit answers
-    API-->>SDK: Quiz results
-    SDK->>UI: Show results
-    UI->>SDK: Progress.UpdateQuizScore(topic_id, score)
-    SDK->>API: Update progress with quiz score
+    alt quiz available
+        User->>UI: Take quiz
+        UI->>SDK: GetQuiz(topic_id)
+        SDK->>API: GetQuiz(topic_id)
+        API-->>SDK: Quiz questions
+        SDK->>UI: Display quiz
+        User->>UI: Submit answers
+        UI->>SDK: SubmitQuiz(topic_id, answers)
+        SDK->>API: SubmitQuiz(topic_id, answers)
+        API-->>SDK: Quiz results
+        SDK->>UI: Show results
+    end
 
     note over SDK,API: Periodically check subscription
-    SDK->>API: Subscription.Check()
+    SDK->>API: CheckSubscription()
     API-->>SDK: Subscription status
     alt expired
-        UI->>User: Notify subscription expired, prompt to renew
+        UI->>User: Notify expired, prompt to renew
         User->>UI: Renew subscription
-        UI->>SDK: Subscription.Renew()
-        SDK->>API: Process renewal
-        API-->>SDK: New subscription details
-        SDK->>UI: Confirm renewal
+        UI->>SDK: RenewSubscription()
+        SDK->>API: RenewSubscription()
+        API-->>SDK: Subscription renewed
+        SDK->>UI: Confirmation
     end
 ```
