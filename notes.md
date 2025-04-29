@@ -6,6 +6,8 @@
 
 > https://elewis.dev/charming-cobras-with-bubbletea-part-1
 > https://github.com/felangga/chiko
+> https://github.com/ggerganov/imtui
+> https://github.com/charmbracelet/bubbletea/tree/1a0062becb4a36a76d7b63e55c44888c53d65835
 
 > https://github.com/NathanBaulch/protoc-gen-cobra
 > https://go-masonry.github.io/
