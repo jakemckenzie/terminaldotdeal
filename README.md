@@ -1,14 +1,14 @@
 # Terminal.deal
 
-Terminal.deal aims to be an e-learning platform for learning card counting via CLI over SSH using gRPC in GoLang.
+Terminal.deal aims to be an e-learning platform for learning card counting via TUI over SSH using gRPC in GoLang.
 
 ## Why an e-learning platform for card counting?
 
-GitHub repositories under the [card-counting topic](https://github.com/topics/card-counting) include mostly simulators, but none prominently feature a CLI-based, SSH-accessible learning platform. I think these are great platforms for analyzing your own performance once you've learned card counting but where is the "here to there" so to speak?
+GitHub repositories under the [card-counting topic](https://github.com/topics/card-counting) include mostly simulators, but none prominently feature a TUI-based, SSH-accessible learning platform. I think these are great platforms for analyzing your own performance once you've learned card counting but where is the "here to there" so to speak?
 
 This is where terminal.deal comes in. It aims to be an e-learning platform for learning how to count cards and practice your skills with gamified elements to keep you on track to be able to leverage tools like this.
 
-The interface will be entirely served via CLI over SSH on purpose. I don't want an easy app for you to ignore on your phone or a book you'll never read once you get it. When you're using terminal.deal it's time to learn. Chapters will be follow this core structure, this may expand or change from this structure but this is what are my thoughts to the e-learning platform structure at this time:
+The interface will be entirely served via TUI over SSH on purpose. I don't want an easy app for you to ignore on your phone or a book you'll never read once you get it. When you're using terminal.deal it's time to learn. Chapters will be follow this core structure, this may expand or change from this structure but this is what are my thoughts to the e-learning platform structure at this time:
 
 ```
 /  
@@ -55,7 +55,7 @@ If you're a student just getting into card counting these books may be hard to f
 
 >Let's say you create a REST API. We're probably going to get either too little or too much data. If we create one REST API to rule them all, it's going to be a bad experience for all these different devices, because we always waste some data, or we have to do multiple network calls, which is also bad.
 
-I'm not serving a browser, I don't have HTML/json to serve the CLI so why make a REST API, seems like overkill. Maybe implementing gRPC _may_ be difficult for me as it's my first time but I'm learning backend development and it seems like just the right amount of bike shedding to level up and serve the client a convenient experience.
+I'm not serving a browser, I don't have HTML/json to serve the TUI so why make a REST API, seems like overkill. Maybe implementing gRPC _may_ be difficult for me as it's my first time but I'm learning backend development and it seems like just the right amount of bike shedding to level up and serve the client a convenient experience.
 
 ## Terminal API Specification
 ```mermaid
